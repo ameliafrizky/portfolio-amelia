@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Amelia Frizky | Portofolio</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fef6f9;
+            color: #4a2d3d;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8e8f5 40%, #ffffff 100%);
+            padding: 50px 0 40px;
+            border-bottom: 3px solid #f8b4d0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(249, 168, 212, 0.25), transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.15), transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-wrapper {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 8px 30px rgba(244, 114, 182, 0.3);
+            transition: 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 40px rgba(244, 114, 182, 0.4);
+        }
+
+        .profile-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f9a8d4, #f472b6, #ec4899);
+            z-index: -1;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #db2777, #ec4899, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 6px;
+        }
+
+        header .tagline {
+            font-size: 1.3rem;
+            color: #9d6b82;
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        header .moto {
+            margin-top: 14px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            display: inline-block;
+            padding: 8px 30px;
+            border-radius: 30px;
+            color: #9d6b82;
+            border: 2px solid #f8b4d0;
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(244, 114, 182, 0.12);
+        }
+
+        /* NAVIGASI */
+        nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid #fce4ec;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 12px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px 35px;
+        }
+
+        nav a {
+            color: #9d6b82;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 6px 0;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ec4899;
+            border-bottom-color: #ec4899;
+        }
+
+        /* SECTION */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            display: inline-block;
+            position: relative;
+            color: #4a2d3d;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #f9a8d4, #ec4899);
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+
+        .section-sub {
+            color: #ec4899;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+        }
+
+        /* ABOUT - SEMUA TEKS WARNA SAMA */
+        #about {
+            background: #fff5f8;
+            border-radius: 30px;
+            margin: 20px 0;
+            padding: 40px 50px;
+            box-shadow: 0 4px 20px rgba(244, 114, 182, 0.06);
+            border: 1px solid #fce4ec;
+        }
+
+        #about p {
+            max-width: 850px;
+            font-size: 1.05rem;
+            color: #4a2d3d;
+            margin-bottom: 14px;
+        }
+
+        #about strong {
+            color: #4a2d3d;
+            font-weight: 700;
+        }
+
+        /* PROJECT LIST */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            margin-top: 10px;
+        }
+
+        .project-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 28px 32px;
+            border: 2px solid #fce4ec;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 16px rgba(244, 114, 182, 0.05);
+        }
+
+        .project-item:hover {
+            border-color: #f472b6;
+            box-shadow: 0 8px 30px rgba(244, 114, 182, 0.12);
+            transform: translateX(4px);
+        }
+
+        .project-item h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #4a2d3d;
+            margin-bottom: 4px;
+        }
+
+        .project-item .project-desc {
+            color: #7a4d62;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .project-item .project-link {
+            display: inline-block;
+            color: #ec4899;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            transition: 0.2s;
+        }
+
+        .project-item .project-link:hover {
+            color: #db2777;
+            text-decoration: underline;
+        }
+
+        .project-item .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .project-item .tech-tags span {
+            background: #fef6f9;
+            color: #ec4899;
+            padding: 4px 16px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid #fce4ec;
+            letter-spacing: 0.3px;
+        }
+
+        /* TECH STACK */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .tech-badge {
+            background: #ffffff;
+            padding: 10px 24px;
+            border-radius: 40px;
+            border: 2px solid #fce4ec;
+            font-weight: 500;
+            color: #4a2d3d;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(244, 114, 182, 0.04);
+        }
+
+        .tech-badge i {
+            color: #ec4899;
+            font-size: 1.2rem;
+        }
+
+        .tech-badge:hover {
+            border-color: #f472b6;
+            transform: translateY(-3px) scale(1.02);
+            background: #fff5f8;
+            box-shadow: 0 8px 24px rgba(244, 114, 182, 0.12);
+        }
+
+        /* PROJECT COUNT */
+        .project-count {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1rem;
+            color: #7a4d62;
+            background: #fff5f8;
+            padding: 16px 24px;
+            border-radius: 40px;
+            border: 2px solid #fce4ec;
+            display: inline-block;
+        }
+
+        .project-count span {
+            font-weight: 700;
+            color: #ec4899;
+            font-size: 1.4rem;
+        }
+
+        .count-wrapper {
+            text-align: center;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #ffffff;
+            border-top: 2px solid #fce4ec;
+            padding: 30px 0;
+            text-align: center;
+            color: #7a4d62;
+        }
+
+        footer .socials {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            margin-bottom: 16px;
+        }
+
+        footer .socials a {
+            color: #d49ab0;
+            font-size: 1.8rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        footer .socials a:hover {
+            color: #ec4899;
+            transform: translateY(-4px) scale(1.1);
+        }
+
+        footer .heart {
+            color: #ec4899;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+            header h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
+            .profile-img { width: 120px; height: 120px; }
+            #about { padding: 30px 20px; }
+            nav .container { gap: 10px 18px; }
+            nav a { font-size: 0.85rem; }
+            .project-item h3 { font-size: 1.4rem; }
+            .project-item { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="profile-wrapper">
+            <img 
+                src="foto-amelia.jpg" 
+                alt="Foto Amelia Frizky" 
+                class="profile-img"
+                id="profilePhoto"
+                onerror="this.src='https://via.placeholder.com/150/FFFFFF/FFFFFF?text=Amelia'"
+            />
+        </div>
+        <h1>Amelia Frizky Aswadi</h1>
+        <p class="tagline">Siswa PPLG | Mobile & Web Developer Enthusiast</p>
+        <div class="moto">"THINKING IN LAYERS, LIVING IN COLORS"</div>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <a href="#about">Tentang</a>
+        <a href="#projects">Proyek</a>
+        <a href="#techstack">Tech Stack</a>
+    </div>
+</nav>
+
+<main class="container">
+
+    <!-- ABOUT - SEMUA TEKS WARNA SAMA -->
+    <section id="about">
+        <span class="section-sub">Tentang Saya</span>
+        <h2 class="section-title">Who Am I?</h2>
+        <p>
+            Saya adalah siswi Pengembangan Perangkat Lunak dan Gim (PPLG) 
+            yang saat ini berfokus pada pengembangan aplikasi dan website. 
+            Memiliki ketertarikan dalam bidang mobile development, 
+            web development, dan teknologi kreatif, 
+            saya senang mempelajari hal baru serta menciptakan sebuah karya digital yang 
+            tidak hanya berfungsi dengan baik, tetapi juga memiliki tampilan yang 
+            menarik dan nyaman digunakan.
+        </p>
+        <p>
+            Selama proses belajar dan mengembangkan berbagai proyek, saya telah mengerjakan 
+            beberapa aplikasi seperti aplikasi kasir, 
+            marketplace skincare, aplikasi petshop, 
+            game store, serta berbagai proyek berbasis database. 
+            Saya terus mengembangkan kemampuan dalam teknologi seperti 
+            Java, Android Studio, Laravel, 
+            PHP Native, Next.js, dan TypeScript 
+            sambil memperluas wawasan di bidang pemrograman dan desain digital.
+        </p>
+        <p>
+            Selain dunia teknologi, saya juga memiliki ketertarikan dalam bidang kreatif seperti 
+            bermain gitar, menulis puisi, menggambar, 
+            dan mencoba berbagai hal baru. Saya memiliki rasa ingin tahu yang tinggi dan 
+            selalu berusaha mengeksplorasi ide-ide baru untuk menghasilkan karya yang lebih baik.
+        </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <span class="section-sub">Karya</span>
+        <h2 class="section-title">Semua Project Saya</h2>
+
+        <div class="project-list">
+
+            <div class="project-item">
+                <h3>🐾 Petshop Laravel</h3>
+                <p class="project-desc">Aplikasi petshop berbasis Laravel dengan manajemen produk, stok, dan transaksi.</p>
+                <a href="https://github.com/ameliafrizky/petshop_laravel" target="_blank" class="project-link">Selengkapnya →</a>
+                <div class="tech-tags">
+                    <span>Laravel</span>
+                    <span>Blade</span>
+                    <span>PHP</span>
+                    <span>Tailwind</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>💄 Meyskincare</h3>
+                <p class="project-desc">Marketplace skincare dengan autentikasi, role admin/user, dan CRUD produk.</p>
+                <a href="https://github.com/ameliafrizky/meyskincare" target="_blank" class="project-link">Selengkapnya →</a>
+                <div class="tech-tags">
+                    <span>Next.js</span>
+                    <span>NextAuth</span>
+                    <span>PostgreSQL</span>
+                    <span>Prisma</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>☕ Kasir Cafeeku</h3>
+                <p class="project-desc">Aplikasi kasir cafe berbasis PHP Native dengan fitur transaksi, riwayat, dan invoice.</p>
+                <a href="https://github.com/ameliafrizky/kasir-cafeeku" target="_blank" class="project-link">Selengkapnya →</a>
+                <div class="tech-tags">
+                    <span>PHP Native</span>
+                    <span>CSS</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>🎮 Game Store Android</h3>
+                <p class="project-desc">Aplikasi game store berbasis Android dengan daftar game dan detail produk.</p>
+                <a href="https://github.com/ameliafrizky/game-store-android" target="_blank" class="project-link">Selengkapnya →</a>
+                <div class="tech-tags">
+                    <span>Java</span>
+                    <span>Android Studio</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>🕹️ Laravel Game Store</h3>
+                <p class="project-desc">Toko game berbasis web dengan manajemen game dan autentikasi pengguna.</p>
+                <a href="https://github.com/ameliafrizky/laravel-game-store" target="_blank" class="project-link">Selengkapnya →</a>
+                <div class="tech-tags">
+                    <span>Laravel</span>
+                    <span>Blade</span>
+                    <span>PHP</span>
+                    <span>Tailwind</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>🍰 KIA Cake Shop</h3>
+                <p class="project-desc">Aplikasi pemesanan kue berbasis Android. Masih dalam pengembangan.</p>
+                <a href="https://github.com/ameliafrizky/APLIKASI-ANDROID-KIA-CAKE-SHOP" target="_blank" class="project-link">Selengkapnya →</a>
+                <div class="tech-tags">
+                    <span>Java</span>
+                    <span>Android Studio</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>⚡ FRIZENT</h3>
+                <p class="project-desc">Proyek berbasis TypeScript yang sedang dikembangkan.</p>
+                <a href="https://github.com/ameliafrizky/FRIZENT" target="_blank" class="project-link">Selengkapnya →</a>
+                <div class="tech-tags">
+                    <span>TypeScript</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>📚 CRUD Ruang Murid</h3>
+                <p class="project-desc">Aplikasi CRUD dengan autentikasi dan manajemen data siswa.</p>
+                <a href="https://github.com/ameliafrizky/CRUD-RUANG-MURID-ANDROID-STUDIO" target="_blank" class="project-link">Selengkapnya →</a>
+                <div class="tech-tags">
+                    <span>Java</span>
+                    <span>Android Studio</span>
+                    <span>SQLite</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>🔐 LoginCuyApp</h3>
+                <p class="project-desc">Aplikasi demo fitur login sederhana.</p>
+                <a href="https://github.com/ameliafrizky/LoginCuyApp" target="_blank" class="project-link">Selengkapnya →</a>
+                <div class="tech-tags">
+                    <span>Java</span>
+                    <span>Android Studio</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>🖥️ UAS Desktop</h3>
+                <p class="project-desc">Proyek UAS berbasis desktop menggunakan Python.</p>
+                <a href="https://github.com/ameliafrizky/uas-desktop-amelia-frizky-10-pplg" target="_blank" class="project-link">Selengkapnya →</a>
+                <div class="tech-tags">
+                    <span>Python</span>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <h3>🛒 Online Shop</h3>
+                <p class="project-desc">Proyek toko online sederhana dengan Laravel Blade.</p>
+                <a href="https://github.com/ameliafrizky/onlineshop" target="_blank" class="project-link">Selengkapnya →</a>
+                <div class="tech-tags">
+                    <span>Blade</span>
+                    <span>Laravel</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="count-wrapper">
+            <div class="project-count">
+                📦 <span>11</span> Project yang telah saya buat
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="techstack">
+        <span class="section-sub">Teknologi</span>
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="tech-stack">
+            <span class="tech-badge"><i class="fab fa-java"></i> Java</span>
+            <span class="tech-badge"><i class="fab fa-android"></i> Android</span>
+            <span class="tech-badge"><i class="fab fa-laravel"></i> Laravel</span>
+            <span class="tech-badge"><i class="fab fa-php"></i> PHP</span>
+            <span class="tech-badge"><i class="fab fa-python"></i> Python</span>
+            <span class="tech-badge"><i class="fab fa-js"></i> TypeScript</span>
+            <span class="tech-badge"><i class="fab fa-js"></i> JavaScript</span>
+            <span class="tech-badge"><i class="fab fa-react"></i> Next.js</span>
+            <span class="tech-badge"><i class="fas fa-database"></i> PostgreSQL</span>
+            <span class="tech-badge"><i class="fas fa-database"></i> SQLite</span>
+            <span class="tech-badge"><i class="fab fa-html5"></i> HTML</span>
+            <span class="tech-badge"><i class="fab fa-css3-alt"></i> CSS</span>
+            <span class="tech-badge"><i class="fab fa-sass"></i> Tailwind</span>
+            <span class="tech-badge"><i class="fas fa-code"></i> Prisma</span>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="socials">
+            <a href="https://github.com/ameliafrizky" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/amliafrzky._/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2026 Amelia Frizky. Dibuat dengan <span class="heart">❤️</span> dan harapan.</p>
+    </div>
+</footer>
+
+</body>
+</html>
